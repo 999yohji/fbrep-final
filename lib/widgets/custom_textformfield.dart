@@ -1,0 +1,116 @@
+// ignore_for_file: prefer_typing_uninitialized_variables
+
+import 'package:flutter/services.dart';
+
+import '../constants.dart';
+import 'package:flutter/material.dart';
+
+// ignore: must_be_immutable
+class CustomTextFormField extends StatelessWidget {
+  final validator;
+  final onSaved;
+  final controller;
+  bool isObscure;
+  final fontSize;
+  final fontColor;
+  final double height, width;
+  final hintTextSize;
+  final hintText;
+  final fillColor;
+  TextInputType keyboardType;
+  int maxLength;
+  final Widget? suffixIcon;
+
+  CustomTextFormField({
+    super.key,
+    required this.validator,
+    required this.onSaved,
+    this.controller = TextEditingController,
+    this.isObscure = false,
+    required this.fontSize,
+    required this.fontColor,
+    this.hintTextSize = 12,
+    this.hintText = '',
+    this.fillColor = Colors.black12,
+    required this.height,
+    required this.width,
+    this.keyboardType = TextInputType.text,
+    this.maxLength = 200,
+    this.suffixIcon,
+  });
+
+  // TODO: Fix eye icon in text field to be clickable, and obscures pw text
+
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
+      validator: validator,
+      onSaved: onSaved,
+      controller: controller,
+      obscureText: isObscure,
+      keyboardType: keyboardType,
+      inputFormatters: [
+        LengthLimitingTextInputFormatter(maxLength),
+      ],
+      style: TextStyle(
+        fontSize: fontSize,
+        color: fontColor,
+      ),
+      decoration: InputDecoration(
+        contentPadding: EdgeInsets.fromLTRB(width, height, width, height),
+        focusColor: Colors.black12,
+        enabledBorder: const OutlineInputBorder(
+          borderSide: BorderSide(
+            color: FB_DARK_PRIMARY,
+            width: 2,
+          ),
+          borderRadius: BorderRadius.all(Radius.circular(10.0)),
+        ),
+        errorBorder: const OutlineInputBorder(
+          borderSide: BorderSide(
+            color: Colors.red,
+            width: 2,
+          ),
+          borderRadius: BorderRadius.all(Radius.circular(10.0)),
+        ),
+        errorStyle: const TextStyle(fontFamily: 'Frutiger'),
+        focusedErrorBorder: const OutlineInputBorder(
+          borderSide: BorderSide(
+            color: Colors.red,
+            width: 2,
+          ),
+          borderRadius: BorderRadius.all(Radius.circular(10.0)),
+        ),
+        focusedBorder: const OutlineInputBorder(
+          borderSide: BorderSide(
+            color: FB_DARK_PRIMARY,
+            width: 2,
+          ),
+          borderRadius: BorderRadius.all(Radius.circular(10.0)),
+        ),
+        filled: true,
+        hintStyle: TextStyle(
+          color: Colors.black12,
+          fontSize: hintTextSize,
+          fontFamily: 'Frutiger',
+        ),
+        hintText: hintText,
+        fillColor: fillColor,
+        suffixIcon: suffixIcon,
+        /* suffixIcon: isPassword
+            ? IconButton(
+                // isPassword checks if field is a password or not
+                icon: Icon(
+                  isObscure ? Icons.remove_red_eye : Icons.visibility_off,
+                  // above line checks if isobscure is true or not, but doesnt actually know that it is because the state never changes
+                  color: const Color.fromARGB(166, 0, 0, 0),
+                ),
+                onPressed: () {
+                  isObscure = false;
+                },
+              )
+            : null, */
+      ),
+    );
+  }
+}

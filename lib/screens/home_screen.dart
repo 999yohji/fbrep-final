@@ -16,15 +16,32 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
   final PageController _pageController = PageController();
-  
-  String _getTitle (int index) {
+
+  String username = '';
+
+  List<String> _titles = ['RatBook', 'Notifications', 'User Name'];
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+
+    final args = ModalRoute.of(context)?.settings.arguments as String?;
+    if (args != null) {
+      setState(() {
+        username = args;
+        _titles[2] = username;
+      });
+    }
+  }
+
+  String _getTitle(int index) {
     switch (index) {
       case 0:
         return 'RatBook';
       case 1:
         return 'Notifications';
-        case 2:
-        return 'Gianncarlo Alcantara';
+      case 2:
+        return username;
       default:
         return 'RatBook';
     }
@@ -35,12 +52,11 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         flexibleSpace: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.centerLeft,
-            end: Alignment.centerRight,
-            colors: <Color>[Color(0xFF1A0926), Color(0xFF351A3B)]
-            ),
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+                begin: Alignment.centerLeft,
+                end: Alignment.centerRight,
+                colors: <Color>[Color(0xFF1A0926), Color(0xFF351A3B)]),
           ),
         ),
         shadowColor: FB_TEXT_COLOR_WHITE,
@@ -50,7 +66,7 @@ class _HomeScreenState extends State<HomeScreen> {
           fontSize: ScreenUtil().setSp(25),
           color: FB_PRIMARY,
           fontFamily: 'Klavika',
-          ),
+        ),
       ),
       body: Container(
         color: FB_PRIMARY,
@@ -85,8 +101,10 @@ class _HomeScreenState extends State<HomeScreen> {
           onTap: _onTappedBar,
           items: const [
             BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-            BottomNavigationBarItem(icon: Icon(Icons.notifications), label: 'Notifications'),
-            BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Gianncarlo Alcantara')
+            BottomNavigationBarItem(
+                icon: Icon(Icons.notifications), label: 'Notifications'),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.person), label: 'Gianncarlo Alcantara')
           ],
           selectedItemColor: FB_PRIMARY,
           currentIndex: _selectedIndex,

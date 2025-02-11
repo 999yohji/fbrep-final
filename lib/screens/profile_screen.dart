@@ -13,6 +13,20 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
+  String username = '';
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+
+    final args = ModalRoute.of(context)?.settings.arguments as String?;
+    if (args != null) {
+      setState(() {
+        username = args;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -74,7 +88,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     CustomFont(
-                      text: 'Gianncarlo Alcantara',
+                      text: username.isEmpty ? 'User Name' : username,
                       fontWeight: FontWeight.bold,
                       fontSize: ScreenUtil().setSp(20),
                       color: Colors.black,
@@ -186,7 +200,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           // Post 1
-                          NewsFeedCard(
+                          /*  NewsFeedCard(
                             userProfilePicture:
                                 'assets/images/profile_pictures/bread.jpg',
                             userName: 'John Doe',
@@ -194,7 +208,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             hasImage: false,
                             imageSource: '',
                             postContent: 'Guys, bayad na ba kayo sa tuition?',
-                            likeCount: '30k',
+                            numOfLikes: 30000,
                           ),
 
                           // Post 2
@@ -207,7 +221,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             imageSource: 'assets/images/post_pictures/nu.jpg',
                             postContent:
                                 'panalo nanaman nu sa cdc... ez ba ez hahaha',
-                            likeCount: '600k',
+                            numOfLikes: 600000,
                           ),
 
                           // Post 3
@@ -221,7 +235,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 'assets/images/post_pictures/pomegranate.jpg',
                             postContent:
                                 'A reminder to the people that might need to hear this.',
-                            likeCount: '60',
+                            numOfLikes: 70,
                           ),
 
                           // Post 4
@@ -233,7 +247,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             hasImage: true,
                             imageSource: 'assets/images/post_pictures/rico.png',
                             postContent: 'grabe ka maris',
-                            likeCount: '31',
+                            numOfLikes: 31,
                           ),
 
                           // Post 5
@@ -245,7 +259,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             hasImage: false,
                             imageSource: '',
                             postContent: '그런 제가 선배 마음에 탕탕 후루후루',
-                            likeCount: '401k',
+                            numOfLikes: 401,
                           ),
 
                           // Post 6
@@ -258,8 +272,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             imageSource:
                                 'assets/images/post_pictures/fakermygoat.jpg',
                             postContent: 'FAKER IS MY GOAT RAAAHHHHHHH',
-                            likeCount: '10k',
-                          ),
+                            numOfLikes: 1033,
+                          ), */
                         ]),
                     Column(children: [
                       CustomFont(
@@ -269,22 +283,27 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       )
                     ]),
                     // ... your Photos Section
-                      SingleChildScrollView(
-                        child: GridView.count(
-                          crossAxisCount: 3,
-                          shrinkWrap: true,
-                          children: [
-                            // Replace with your image widgets
-                            Image.asset('assets/images/profile_pictures/drogba.jpg'),
-                            Image.asset('assets/images/profile_pictures/faker.png'),
-                            Image.asset('assets/images/profile_pictures/juan.jpg'),
-                            Image.asset('assets/images/profile_pictures/kenma.jpg'),
-                            Image.asset('assets/images/profile_pictures/thugger.png'),
-                            Image.asset('assets/images/profile_pictures/luweezy.jpg'),
-                            
-                          ],
-                        ),
-                      )
+                    SingleChildScrollView(
+                      child: GridView.count(
+                        crossAxisCount: 3,
+                        shrinkWrap: true,
+                        children: [
+                          // Replace with your image widgets
+                          Image.asset(
+                              'assets/images/profile_pictures/drogba.jpg'),
+                          Image.asset(
+                              'assets/images/profile_pictures/faker.png'),
+                          Image.asset(
+                              'assets/images/profile_pictures/juan.jpg'),
+                          Image.asset(
+                              'assets/images/profile_pictures/kenma.jpg'),
+                          Image.asset(
+                              'assets/images/profile_pictures/thugger.png'),
+                          Image.asset(
+                              'assets/images/profile_pictures/luweezy.jpg'),
+                        ],
+                      ),
+                    )
                   ],
                 ),
               ),

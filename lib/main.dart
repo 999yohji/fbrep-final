@@ -1,4 +1,6 @@
-import 'package:facebook_replication_alcantara/screens/profile_screen.dart';
+import '../screens/login_screen.dart';
+import '../screens/profile_screen.dart';
+import '../screens/register_screen.dart';
 import 'package:flutter/material.dart';
 import '../screens/home_screen.dart';
 import '../screens/newsfeed_screen.dart';
@@ -13,18 +15,21 @@ class FacebookReplicationAlcantara extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-     return ScreenUtilInit(
+    return ScreenUtilInit(
       designSize: const Size(412, 715),
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (_, child) {
         return MaterialApp(
+          color: Colors.white,
           debugShowCheckedModeBanner: false,
           title: 'Facebook Replication',
-          initialRoute: '/home',
+          initialRoute: '/login',
           routes: {
             '/newsfeed': (context) => const NewsFeedScreen(),
             '/home': (context) => const HomeScreen(),
+            '/login': (context) => const LogInScreen(),
+            '/register': (context) => const RegisterScreen(),
             '/profile': (context) => const ProfileScreen(),
           },
         );

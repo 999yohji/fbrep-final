@@ -1,57 +1,101 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../widgets/custom_font.dart';
 
-class Notification extends StatelessWidget {
-  const Notification(
-      {super.key,
-      required this.notifProfilePicture,
-      required this.name,
-      required this.post,
-      required this.description});
+import 'package:flutter/material.dart';
 
-  final String notifProfilePicture;
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../screens/detail_screen.dart';
+
+class Notification extends StatelessWidget {
+  const Notification({
+    super.key,
+    required this.name,
+    required this.post,
+    required this.description,
+    this.icon = const Icon(Icons.person),
+    this.profileImageUrl = '',
+    this.atProfile = false,
+    required this.date,
+    this.imageUrl = '',
+    required this.numOfLikes,
+  });
+
   final String name;
   final String post;
   final String description;
+  final Icon icon;
+  final String profileImageUrl;
+  final String date;
+  final int numOfLikes;
+  final String imageUrl;
+  final bool atProfile;
+
+  // TODO: inkwell on newsfeed screen, look into turning post_card.dart into stateful
 
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(ScreenUtil().setSp(15)),
-      child: Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        CircleAvatar(
-          backgroundImage: AssetImage(notifProfilePicture),
+      child: InkWell(
+        onTap: () {
+          if (!atProfile) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => DetailScreen(
+                  userName: name,
+                  postContent: description,
+                  date: date,
+                  numOfLikes: numOfLikes,
+                  imageUrl: imageUrl,
+                  profileImageUrl: profileImageUrl,
+                ),
+              ),
+            );
+          }
+        },
+        child: Row(
+          children: [
+            (profileImageUrl == '')
+                ? icon
+                : CircleAvatar(
+                    radius: ScreenUtil().setSp(15),
+                    backgroundImage: NetworkImage(profileImageUrl),
+                  ),
+            SizedBox(width: ScreenUtil().setWidth(10)),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                CustomFont(
+                  text: name,
+                  fontSize: ScreenUtil().setSp(20),
+                  color: Colors.black,
+                  fontWeight: FontWeight.w800,
+                ),
+                CustomFont(
+                  text: 'Posted: $post',
+                  fontSize: ScreenUtil().setSp(13),
+                  color: Colors.black,
+                ),
+                CustomFont(
+                  text: description,
+                  fontSize: ScreenUtil().setSp(12),
+                  color: Colors.black,
+                  fontStyle: FontStyle.italic,
+                ),
+                SizedBox(height: ScreenUtil().setHeight(5)),
+                CustomFont(
+                  text: date,
+                  fontSize: ScreenUtil().setSp(12),
+                  color: Colors.grey.shade400,
+                ),
+              ],
+            ),
+            const Spacer(),
+            const Icon(Icons.more_horiz),
+          ],
         ),
-        SizedBox(
-          width: ScreenUtil().setSp(10),
-        ),
-        /* Expanded(
-            child: */
-        Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          CustomFont(
-            text: name,
-            fontSize: ScreenUtil().setSp(20),
-            color: Colors.black,
-            fontWeight: FontWeight.w800,
-          ),
-          CustomFont(
-            // i hate flexibles/expanded widgets so much, had to waste an hour
-            // trying to debug widget size only to arrive at this solution
-            text: post.length > 40 ? '${post.substring(0, 40)}...' : post,
-            fontSize: ScreenUtil().setSp(13),
-            color: Colors.black,
-          ),
-          CustomFont(
-            text: description,
-            fontSize: ScreenUtil().setSp(12),
-            color: Colors.black,
-            fontStyle: FontStyle.italic,
-          ),
-        ]),
-        const Spacer(),
-        const Icon(Icons.more_horiz),
-      ]),
+      ),
     );
   }
 }

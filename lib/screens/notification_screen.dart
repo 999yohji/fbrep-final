@@ -20,131 +20,168 @@ class _NotificationScreenState extends State<NotificationScreen> {
           children: [
             // Notif 1
             notif.Notification(
-              notifProfilePicture: 'assets/images/profile_pictures/malenia.jpg',
-              name: 'Malenia, Blade of Miquella',
-              post: 'Where Karl Bradley at?',
-              description: 'real hot girl s**t',
+              profileImageUrl: 'assets/images/profile_pictures/malenia.jpg',
+              name: 'Test',
+              post: 'Post',
+              description: 'Description',
+              date: 'December TWO?!',
+              numOfLikes: 12,
             ),
             Divider(),
 
             // Notif 2
             notif.Notification(
-              notifProfilePicture: 'assets/images/profile_pictures/usahana.jpg',
-              name: 'Usahana',
-              post: 'I love ballet! ^__^',
-              description: 'yippieee',
+              profileImageUrl: 'assets/images/profile_pictures/usahana.jpg',
+              name: 'Test',
+              post: 'Post',
+              description: 'Description',
+              date: 'January 32nd',
+              numOfLikes: 123,
             ),
             Divider(),
 
             // Notif 3
             notif.Notification(
-              notifProfilePicture: 'assets/images/profile_pictures/crummy.jpg',
-              name: 'Kuromi',
-              post: 'carti drop the album already jesus',
-              description: 'WHERE\'S THE ALBUM!!!',
+              profileImageUrl: 'assets/images/profile_pictures/crummy.jpg',
+              name: 'Test',
+              post: 'Post',
+              description: 'Description',
+              date: 'February 21st',
+              numOfLikes: 12,
             ),
             Divider(),
 
             // Notif 4
             notif.Notification(
-              notifProfilePicture: 'assets/images/profile_pictures/thugger.png',
-              name: 'Jeffrey Lamar Williams II',
-              post: 'rico case dont got nun on me . shout out my lawyer brian',
-              description: 'slime out!',
+              profileImageUrl: 'assets/images/profile_pictures/thugger.png',
+              name: 'Test',
+              post: 'Post',
+              description: 'Description',
+              date: 'October 6nd',
+              numOfLikes: 123,
             ),
             Divider(),
 
             // Notif 5
             notif.Notification(
-              notifProfilePicture:
+              profileImageUrl:
                   'assets/images/profile_pictures/martinlations.jpg',
-              name: 'Oliver Patois',
-              post: 'nakadekwatro na ako dito par, san ka na boy?',
-              description: 'I\'m telling you this right now.',
+              name: 'Test',
+              post: 'Post',
+              description: 'Description',
+              date: 'Kanina Lang',
+              numOfLikes: 334,
             ),
             Divider(),
 
             // Notif 6
             notif.Notification(
-              notifProfilePicture:
-                  'assets/images/profile_pictures/nettspend.jpg',
-              name: 'Nettspend',
-              post: 'shoutout 2 the philippines.',
-              description: 'add me on roblox lmao',
+              profileImageUrl: 'assets/images/profile_pictures/nettspend.jpg',
+              name: 'Test',
+              post: 'Post',
+              description: 'Description',
+              date: 'June 8th',
+              numOfLikes: 223,
             ),
             Divider(),
 
             // Notif 7
             notif.Notification(
-              notifProfilePicture: 'assets/images/profile_pictures/zeke.jpg',
-              name: 'Daniel SKL Orisa',
-              post: 'yall tryna hop on marvel rivals?',
-              description: 'haahahahaha',
+              profileImageUrl: 'assets/images/profile_pictures/zeke.jpg',
+              name: 'Test',
+              post: 'Post',
+              description: 'Description',
+              date: 'August 2',
+              numOfLikes: 566,
             ),
             Divider(),
 
             // Notif 8
             notif.Notification(
-              notifProfilePicture: 'assets/images/profile_pictures/luweezy.jpg',
-              name: 'Gabby alyas Jah\'rakal',
-              post: 'pagawa na kayo ng bahay sakin oh',
-              description: '150 lang tf mura na to',
+              profileImageUrl: 'assets/images/profile_pictures/luweezy.jpg',
+              name: 'Test',
+              post: 'Post',
+              description: 'Description',
+              date: 'June 6',
+              numOfLikes: 246,
             ),
             Divider(),
 
             // Notif 9
             notif.Notification(
-              notifProfilePicture: 'assets/images/profile_pictures/sara.png',
-              name: 'Sarah D. Terte',
-              post: 'ako ay magsasabi ng hindi magagandang words',
-              description: 'ranting lang hehe',
+              profileImageUrl: 'assets/images/profile_pictures/sara.png',
+              name: 'Test',
+              post: 'Post',
+              description: 'Description',
+              date: 'November 9',
+              numOfLikes: 311,
             ),
             Divider(),
 
             // Notif 10
             notif.Notification(
               // lotso pocchaco kenma da cat
-              notifProfilePicture: 'assets/images/profile_pictures/alab.jpg',
-              name: 'Alba Endoftheworld',
-              post: 'magpa commission na kayo sakin gutom na gutom na ako',
-              description: 'loveyoy',
+              profileImageUrl: 'assets/images/profile_pictures/alab.jpg',
+              name: 'Test',
+              post: 'Post',
+              description: 'Description',
+              date: 'March 6',
+              numOfLikes: 153,
             ),
             Divider(),
 
             // Notif 11
             notif.Notification(
-              notifProfilePicture: 'assets/images/profile_pictures/drogba.jpg',
-              name: 'Didier Drogba',
-              post: 'We made Chelsea european champions.',
-              description: 'Champions of Europe 2012, Never forget!',
+              profileImageUrl: 'assets/images/profile_pictures/drogba.jpg',
+              name: 'Test',
+              post: 'Post',
+              description: 'Description',
+              date: 'May 20',
+              numOfLikes: 779,
             ),
             Divider(),
 
             // Notif 12
             notif.Notification(
-              notifProfilePicture: 'assets/images/profile_pictures/lotso.jpg',
-              name: 'Lotso Macapagal',
-              post: 'I like cake. A lot.',
-              description: 'I\'m totally not evil or anything!',
+              profileImageUrl: 'assets/images/profile_pictures/lotso.jpg',
+              name: 'Test',
+              post: 'Post',
+              description: 'Description',
+              date: 'May 5',
+              numOfLikes: 1113,
             ),
             Divider(),
 
             // Notif 13
             notif.Notification(
-              notifProfilePicture:
-                  'assets/images/profile_pictures/pochacco.jpg',
-              name: 'Pochacco',
-              post: 'Heehee...',
-              description: ':3',
+              profileImageUrl: 'assets/images/profile_pictures/pochacco.jpg',
+              name: 'Test',
+              post: 'Post',
+              description: 'Description',
+              date: 'April 13',
+              numOfLikes: 123,
             ),
             Divider(),
 
             // Notif 14
             notif.Notification(
-              notifProfilePicture: 'assets/images/profile_pictures/kenma.jpg',
-              name: 'Kenma',
-              post: 'I miss my mom and dad...',
-              description: 'Watching over you two from cat heaven ! <3',
+              profileImageUrl: 'assets/images/profile_pictures/kenma.jpg',
+              name: 'Test',
+              post: 'Post',
+              description: 'Description',
+              date: 'July 4',
+              numOfLikes: 333,
+            ),
+            Divider(),
+
+            // Notif 15
+            notif.Notification(
+              profileImageUrl: 'assets/images/profile_pictures/faker.png',
+              name: 'Test',
+              post: 'Post',
+              description: 'Description',
+              date: 'December 3',
+              numOfLikes: 134,
             ),
             Divider(),
           ],
